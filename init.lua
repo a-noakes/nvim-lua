@@ -9,7 +9,6 @@ require("_null-ls")
 require("_terminal")
 require("_remap")
 
---vim.cmd("corscheme gruvbox")
 vim.cmd('colorscheme gruvbox')
 
 -- important to import after colorscheme
