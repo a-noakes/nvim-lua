@@ -9,7 +9,7 @@ require("_null-ls")
 require("_terminal")
 require("_remap")
 
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme solarized')
 
 -- important to import after colorscheme
 require("_statusline")
