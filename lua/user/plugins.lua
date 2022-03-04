@@ -60,9 +60,8 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "karoliskoncevicius/vim-sendtowindow" -- Send text to windows
   use "vimwiki/vimwiki" --Note taking
-
-
-  -- Colorschemes
+  use "Pocco81/AutoSave.nvim" --autosaving files
+   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "morhetz/gruvbox"
