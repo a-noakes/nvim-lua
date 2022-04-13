@@ -23,6 +23,9 @@ vim.cmd [[
   augroup end
 ]]
 
+-- set lsp log level
+vim.lsp.set_log_level("debug")
+
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
