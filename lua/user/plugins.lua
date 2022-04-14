@@ -81,6 +81,7 @@ return packer.startup(function(use)
   -- use "metakirby5/codi.vim"
   use "nyngwang/NeoZoom.lua"
   use "SmiteshP/nvim-gps"
+  use "karoliskoncevicius/vim-sendtowindow" -- Send text to windows
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
@@ -92,6 +93,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
+  use "ishan9299/nvim-solarized-lua"
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "rose-pine/neovim"
