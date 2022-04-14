@@ -81,7 +81,6 @@ return packer.startup(function(use)
   -- use "metakirby5/codi.vim"
   use "nyngwang/NeoZoom.lua"
   use "SmiteshP/nvim-gps"
-  -- use "Pocco81/AutoSave.nvim" --autosaving files
   use "karoliskoncevicius/vim-sendtowindow" -- Send text to windows
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
