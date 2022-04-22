@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim"
+  -- use "numToStr/Comment.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "tamago324/lir.nvim"
@@ -75,7 +75,7 @@ return packer.startup(function(use)
   -- use "lunarvim/vim-solidity"
   use "Mephistophiles/surround.nvim"
   use "tpope/vim-repeat"
-  use "Shatur/neovim-session-manager"
+  -- use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
@@ -90,6 +90,7 @@ return packer.startup(function(use)
     ft = "markdown",
   }
   use "matbme/JABS.nvim"
+  use "vimwiki/vimwiki"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"

@@ -5,12 +5,12 @@ end
 
 zen_mode.setup({
 	window = {
-		backdrop = 1,
-		height = 0.9, -- height of the Zen window
-		width = 0.85,
+		backdrop = 0.6,
+		height = 0.95, -- height of the Zen window
+		width = 0.95,
 		options = {
 			signcolumn = "no", -- disable signcolumn
-			number = false, -- disable number column
+			number = true, -- disable number column
 			relativenumber = false, -- disable relative numbers
 			-- cursorline = false, -- disable cursorline
 			-- cursorcolumn = false, -- disable cursor column
