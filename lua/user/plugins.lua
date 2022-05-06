@@ -47,7 +47,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
+  use { "kyazdani42/nvim-tree.lua" }
   use "tamago324/lir.nvim"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
-  use "nyngwang/NeoZoom.lua"
+  use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
   use "SmiteshP/nvim-gps"
   use "karoliskoncevicius/vim-sendtowindow" -- Send text to windows
   use { "michaelb/sniprun", run = "bash ./install.sh" }
@@ -102,9 +102,10 @@ return packer.startup(function(use)
 
   -- cmp plugins
   -- use "hrsh7th/nvim-cmp" -- The completion plugin
-    use { 'hrsh7th/nvim-cmp'
-      -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
-    }
+  use {
+    "hrsh7th/nvim-cmp",
+    -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
+  }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -132,7 +133,7 @@ return packer.startup(function(use)
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   }
-  
+
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
 
   -- snippets
@@ -143,7 +144,7 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  -- use {"jose-elias-alvarez/null-ls.nvim",commit = "82be4bf6ee7b1c2605758b06d918c9dcf6f8e3f282be4bf6ee7b1c2605758b06d918c9dcf6f8e3f2" }-- for formatters and linters
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
