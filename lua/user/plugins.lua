@@ -90,7 +90,7 @@ return packer.startup(function(use)
     ft = "markdown",
   }
   use "matbme/JABS.nvim"
-  use "vimwiki/vimwiki"
+  -- use "vimwiki/vimwiki"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -144,7 +144,7 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  -- use {"jose-elias-alvarez/null-ls.nvim",commit = "82be4bf6ee7b1c2605758b06d918c9dcf6f8e3f282be4bf6ee7b1c2605758b06d918c9dcf6f8e3f2" }-- for formatters and linters
+  use {"jose-elias-alvarez/null-ls.nvim"}--,commit = "82be4bf6ee7b1c2605758b06d918c9dcf6f8e3f282be4bf6ee7b1c2605758b06d918c9dcf6f8e3f2" }-- for formatters and linters
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
