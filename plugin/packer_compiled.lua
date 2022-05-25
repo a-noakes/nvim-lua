@@ -87,7 +87,7 @@ _G.packer_plugins = {
   ["JABS.nvim"] = {
     loaded = true,
     path = "/Users/alexis/.local/share/nvim/site/pack/packer/start/JABS.nvim",
-    url = "https://github.com/matbme/JABS.nvim"
+    url = "https://github.com/christianchiarulli/JABS.nvim"
   },
   LuaSnip = {
     loaded = true,
@@ -123,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alexis/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-dap"] = {
+    loaded = true,
+    path = "/Users/alexis/.local/share/nvim/site/pack/packer/start/cmp-dap",
+    url = "https://github.com/rcarriga/cmp-dap"
   },
   ["cmp-emoji"] = {
     loaded = true,
@@ -310,7 +315,7 @@ _G.packer_plugins = {
   ["nvim-gps"] = {
     loaded = true,
     path = "/Users/alexis/.local/share/nvim/site/pack/packer/start/nvim-gps",
-    url = "https://github.com/SmiteshP/nvim-gps"
+    url = "https://github.com/christianchiarulli/nvim-gps"
   },
   ["nvim-jdtls"] = {
     loaded = true,

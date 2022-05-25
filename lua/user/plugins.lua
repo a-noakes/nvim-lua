@@ -80,8 +80,8 @@ return packer.startup(function(use)
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
   use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
-  use "SmiteshP/nvim-gps"
   use "karoliskoncevicius/vim-sendtowindow" -- Send text to windows
+  use {"christianchiarulli/nvim-gps", branch = "text_hl"}
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
@@ -89,8 +89,8 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
-  use "matbme/JABS.nvim"
   -- use "vimwiki/vimwiki"
+  use "christianchiarulli/JABS.nvim"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -113,6 +113,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
+  use "rcarriga/cmp-dap"
   use {
     "tzachar/cmp-tabnine",
     config = function()

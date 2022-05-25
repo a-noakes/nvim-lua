@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
 -- vim.api.nvim_create_autocmd({ "BufEnter" }, {
 --   callback = function()
 --     vim.cmd [[
@@ -45,6 +45,47 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
     vim.cmd "quit"
   end,
 })
+
+local function has_value(tab, val)
+  for _, value in ipairs(tab) do
+    if value == val then
+      return true
+    end
+  end
+
+  return false
+end
+
+-- vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
+--   callback = function()
+--     local winbar_filetype_exclude = {
+--       "help",
+--       "startify",
+--       "dashboard",
+--       "packer",
+--       "neogitstatus",
+--       "NvimTree",
+--       "Trouble",
+--       "alpha",
+--       "lir",
+--       "Outline",
+--       "spectre_panel",
+--     }
+--
+--     if has_value(winbar_filetype_exclude, vim.bo.filetype) then
+--       vim.opt_local.winbar = nil
+--       return
+--     end
+--
+--     local value = require("user.winbar").gps()
+--
+--     if value == nil then
+--       value = require("user.winbar").filename()
+--     end
+--
+--     vim.opt_local.winbar = value
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
