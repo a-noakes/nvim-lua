@@ -69,15 +69,6 @@ local spaces = function()
   return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
-local nvim_gps = function()
-  local gps_location = gps.get_location()
-  if gps_location == "error" then
-    return ""
-  else
-    return gps.get_location()
-  end
-end
-
 lualine.setup {
   options = {
     globalstatus = true,

@@ -15,6 +15,8 @@ local servers = {
   "tflint",
   "tsserver",
   "pyright",
+  "yamlls",
+  "bashls"
 }
 
 local settings = {

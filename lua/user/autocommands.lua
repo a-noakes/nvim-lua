@@ -1,14 +1,15 @@
-vim.api.nvim_create_autocmd({ "User" }, {
-  pattern = { "AlphaReady" },
-  callback = function()
-    vim.cmd [[
-      set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-    ]]
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "User" }, {
+--   pattern = { "AlphaReady" },
+--   callback = function()
+--     vim.cmd [[
+--       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+--     ]]
+--   end,
+-- })
+
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
+  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
@@ -22,6 +23,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lir" },
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
   end,
 })
 
@@ -46,46 +55,11 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
   end,
 })
 
-local function has_value(tab, val)
-  for _, value in ipairs(tab) do
-    if value == val then
-      return true
-    end
-  end
-
-  return false
-end
-
--- vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
---   callback = function()
---     local winbar_filetype_exclude = {
---       "help",
---       "startify",
---       "dashboard",
---       "packer",
---       "neogitstatus",
---       "NvimTree",
---       "Trouble",
---       "alpha",
---       "lir",
---       "Outline",
---       "spectre_panel",
---     }
---
---     if has_value(winbar_filetype_exclude, vim.bo.filetype) then
---       vim.opt_local.winbar = nil
---       return
---     end
---
---     local value = require("user.winbar").gps()
---
---     if value == nil then
---       value = require("user.winbar").filename()
---     end
---
---     vim.opt_local.winbar = value
---   end,
--- })
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
+  callback = function()
+    require("user.winbar").get_winbar()
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
