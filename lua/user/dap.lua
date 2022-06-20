@@ -8,6 +8,18 @@ if not dap_ui_status_ok then
 	return
 end
 
+local dap_install_status_ok, dap_install = pcall(require, "dap_install")
+if not dap_install_status_ok then
+  print('dap_install not ok')
+	return
+end
+
+dap_install.setup({
+  installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+})
+
+dap_install.config("python", {})
+
 dapui.setup {
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {

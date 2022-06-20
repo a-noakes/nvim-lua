@@ -14,7 +14,7 @@ configs.setup({
     -- use_languagetree = true,
 		enable = true, -- false will disable the whole extension
 		-- disable = { "css", "html" }, -- list of language that will be disabled
-		disable = { "css", "markdown" }, -- list of language that will be disabled
+		disable = { "css", "html" }, -- list of language that will be disabled
 		-- additional_vim_regex_highlighting = true,
 	},
 	autopairs = {
@@ -27,7 +27,7 @@ configs.setup({
 	},
 	autotag = {
 		enable = true,
-		disable = { "xml" },
+		disable = { "xml", "html" },
 	},
 	rainbow = {
 		enable = true,

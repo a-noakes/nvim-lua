@@ -96,7 +96,7 @@ return packer.startup(function(use)
 
   use {
     "ghillb/cybu.nvim",
-    branch = "v1.x", -- won't receive breaking changes
+    -- branch = "v1.x", -- won't receive breaking changes
     -- branch = "main", -- timely updates
     requires = { "kyazdani42/nvim-web-devicons" }, --optional
   }
@@ -202,7 +202,8 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
-  use "Pocco81/DAPInstall.nvim"
+  -- use "ravenxrz/DAPInstall.nvim"
+  use "ravenxrz/DAPInstall.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
