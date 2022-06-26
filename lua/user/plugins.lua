@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  -- use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "goolord/alpha-nvim"
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "unblevable/quick-scope"
   use "phaazon/hop.nvim"
@@ -155,10 +155,12 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use {"jose-elias-alvarez/null-ls.nvim"}--,commit = "82be4bf6ee7b1c2605758b06d918c9dcf6f8e3f282be4bf6ee7b1c2605758b06d918c9dcf6f8e3f2" }-- for formatters and linters
-  use "filipdutescu/renamer.nvim"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  -- use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
-  use "ray-x/lsp_signature.nvim"
+  use {"ray-x/lsp_signature.nvim",
+    commit = "4852d99f9511d090745d3cc1f09a75772b9e07e9"
+  }
   use "b0o/SchemaStore.nvim"
   use {
     "folke/trouble.nvim",
@@ -180,7 +182,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    -- run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use { "p00f/nvim-ts-rainbow" }
@@ -203,7 +205,8 @@ return packer.startup(function(use)
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   -- use "ravenxrz/DAPInstall.nvim"
-  use "ravenxrz/DAPInstall.nvim"
+  use {"Pocco81/DAPInstall.nvim",
+    commit = "24923c3"}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
