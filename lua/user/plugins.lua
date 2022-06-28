@@ -42,14 +42,14 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  -- use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use { "kyazdani42/nvim-tree.lua" }
+  use "kyazdani42/nvim-tree.lua"
   use "tamago324/lir.nvim"
-  use "akinsho/bufferline.nvim"
+  -- use "tiagovla/scope.nvim"
+  -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
@@ -57,10 +57,9 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "goolord/alpha-nvim"
-  -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-  use "unblevable/quick-scope"
-  use "phaazon/hop.nvim"
+  -- use "unblevable/quick-scope"
+  use "christianchiarulli/hop.nvim"
   use "andymass/vim-matchup"
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
@@ -74,14 +73,14 @@ return packer.startup(function(use)
   use "MattesGroeger/vim-bookmarks"
   -- use "lunarvim/vim-solidity"
   use "Mephistophiles/surround.nvim"
-  use "tpope/vim-repeat"
+  -- use "tpope/vim-repeat"
   -- use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
   use "Pocco81/AutoSave.nvim"
-  use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
   use "karoliskoncevicius/vim-sendtowindow" -- Send text to windows
+  -- use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
   use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {"iamcco/markdown-preview.nvim",
@@ -100,6 +99,12 @@ return packer.startup(function(use)
     -- branch = "main", -- timely updates
     requires = { "kyazdani42/nvim-web-devicons" }, --optional
   }
+  -- use {
+  --   "christianchiarulli/JABS.nvim",
+  --   requires = { "kyazdani42/nvim-web-devicons" }, --optional
+  -- }
+
+  use "ghillb/cybu.nvim"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -123,7 +128,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use "rcarriga/cmp-dap"
+  -- use "rcarriga/cmp-dap"
   use {
     "tzachar/cmp-tabnine",
     config = function()
@@ -166,7 +171,20 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
+  use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("user.copilot")
+      end, 100)
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    module = "copilot_cmp",
+  }
   use "RRethy/vim-illuminate"
 
   -- Java
@@ -176,8 +194,8 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
-  use "nvim-telescope/telescope-ui-select.nvim"
-  use "nvim-telescope/telescope-file-browser.nvim"
+  -- use "nvim-telescope/telescope-ui-select.nvim"
+  -- use "nvim-telescope/telescope-file-browser.nvim"
 
   -- Treesitter
   use {
@@ -189,8 +207,8 @@ return packer.startup(function(use)
   -- use {'christianchiarulli/nvim-ts-rainbow'}
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
-  use "romgrk/nvim-treesitter-context"
-  use "mizlan/iswap.nvim"
+  -- use "romgrk/nvim-treesitter-context"
+  -- use "mizlan/iswap.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -198,7 +216,7 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
-  use "https://github.com/rhysd/conflict-marker.vim"
+  -- use "https://github.com/rhysd/conflict-marker.vim"
 
   -- DAP
   use "mfussenegger/nvim-dap"

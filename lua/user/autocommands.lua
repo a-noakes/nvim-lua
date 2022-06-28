@@ -93,3 +93,13 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     vim.cmd "hi link illuminatedWord LspReferenceText"
   end,
 })
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  callback = function()
+    local luasnip = require "luasnip"
+    if luasnip.expand_or_jumpable() then
+      -- ask maintainer for option to make this silent
+      luasnip.unlink_current()
+    end
+  end,
+})
