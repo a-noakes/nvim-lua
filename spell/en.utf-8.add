@@ -76,3 +76,8 @@ Lualine
 lightline
 galaxyline
 Linter
+<<<<<<< HEAD
+=======
+pacman
+cons
+>>>>>>> machine-nvim/master

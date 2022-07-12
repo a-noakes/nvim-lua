@@ -17,12 +17,36 @@ vim.api.nvim_create_autocmd({ "User" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
+  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "DressingSelect" },
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
       set nobuflisted 
     ]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "" },
+  callback = function()
+    local buf_ft = vim.bo.filetype
+    if buf_ft == "" or buf_ft == nil then
+      vim.cmd [[
+      nnoremap <silent> <buffer> q :close<CR> 
+      nnoremap <silent> <buffer> <c-j> j<CR> 
+      nnoremap <silent> <buffer> <c-k> k<CR> 
+      set nobuflisted 
+    ]]
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "term://*" },
+  callback = function()
+    vim.cmd "startinsert!"
+    -- TODO: if java = 2
+    vim.cmd "set cmdheight=1"
   end,
 })
 
@@ -63,11 +87,16 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
-  callback = function()
-    require("user.winbar").get_winbar()
-  end,
-})
+if vim.fn.has "nvim-0.8" == 1 then
+  vim.api.nvim_create_autocmd(
+    { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+    {
+      callback = function()
+        require("user.winbar").get_winbar()
+      end,
+    }
+  )
+end
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
@@ -103,3 +132,15 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
     end
   end,
 })
+vim.cmd [[ au FocusGained,BufEnter * :checktime ]]
+
+-- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+--   callback = function()
+--     local luasnip = require "luasnip"
+--     if luasnip.expand_or_jumpable() then
+--       -- ask maintainer for option to make this silent
+--       -- luasnip.unlink_current()
+--       vim.cmd [[silent! lua require("luasnip").unlink_current()]]
+--     end
+--   end,
+-- })

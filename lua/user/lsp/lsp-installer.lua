@@ -8,7 +8,7 @@ local servers = {
   "cssmodules_ls",
   "emmet_ls",
   "html",
-  -- "jdtls",
+  "jdtls",
   "jsonls",
   "solc",
   "sumneko_lua",
@@ -18,21 +18,18 @@ local servers = {
   "yamlls",
   "bashls",
   "clangd",
+<<<<<<< HEAD
   "terraformls",
+=======
+  "rust_analyzer",
+  "taplo",
+>>>>>>> machine-nvim/master
 }
 
 local settings = {
   ensure_installed = servers,
-  -- automatic_installation = false,
   ui = {
-    icons = {
-      -- server_installed = "◍",
-      -- server_pending = "◍",
-      -- server_uninstalled = "◍",
-      -- server_installed = "✓",
-      -- server_pending = "➜",
-      -- server_uninstalled = "✗",
-    },
+    icons = {},
     keymaps = {
       toggle_server_expand = "<CR>",
       install_server = "i",
@@ -45,8 +42,6 @@ local settings = {
   },
 
   log_level = vim.log.levels.INFO,
-  -- max_concurrent_installers = 4,
-  -- install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" },
 }
 
 lsp_installer.setup(settings)
@@ -69,6 +64,11 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
 
+  if server == "yamlls" then
+    local yamlls_opts = require "user.lsp.settings.yamlls"
+    opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
+  end
+
   if server == "sumneko_lua" then
     local sumneko_opts = require "user.lsp.settings.sumneko_lua"
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
@@ -77,11 +77,6 @@ for _, server in pairs(servers) do
   if server == "pyright" then
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
-
-  if server == "solang" then
-    local solang_opts = require "user.lsp.settings.solang"
-    opts = vim.tbl_deep_extend("force", solang_opts, opts)
   end
 
   if server == "solc" then
@@ -94,7 +89,24 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
   end
 
+  if server == "jdtls" then
+    goto continue
+  end
+
+  if server == "rust_analyzer" then
+    local rust_opts = require "user.lsp.settings.rust"
+
+    local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+    if not rust_tools_status_ok then
+      return
+    end
+
+    rust_tools.setup(rust_opts)
+    goto continue
+  end
+
   lspconfig[server].setup(opts)
+  ::continue::
 end
 
 -- TODO: add something to installer later
